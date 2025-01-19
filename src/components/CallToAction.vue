@@ -28,7 +28,7 @@
 <style scoped>
 .cta {
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: var(--call-to-action-gradient);
   color: white;
   text-align: center;
 }
@@ -74,7 +74,7 @@ p {
 
 .waitlist-btn {
   background-color: white;
-  color: var(--primary-color);
+  color: var(--footer-color);
   border: none;
   padding: 1rem 2rem;
   border-radius: 8px;

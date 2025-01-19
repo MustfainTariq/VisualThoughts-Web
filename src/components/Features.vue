@@ -47,63 +47,67 @@
   </template>
   
   <style scoped>
-  .features {
-    padding: 6rem 2rem;
-    background-color: #f8f9fa;
-  }
-  
-  h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--primary-color);
-  }
-  
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .feature-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-    border: 1px solid rgba(102, 84, 94, 0.1);
-  }
-  
-  .feature-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .feature-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-  }
-  
-  p {
-    color: #666;
-    line-height: 1.6;
-  }
-  
-  @media (max-width: 768px) {
     .features {
-      padding: 4rem 1rem;
+      padding: 6rem 2rem;
+      background-color: var(--bg-color); /* Use dynamic background color */
+      transition: background-color 0.3s, color 0.3s;
     }
-  
+    
     h2 {
-      font-size: 2rem;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: var(--primary-color); /* Dynamic text color */
+      transition: color 0.3s;
     }
-  }
-  </style>
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .feature-card {
+      background: var(--bg-color); /* Dynamic card background */
+      color: var(--text-color); /* Dynamic text color */
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, background-color 0.3s, color 0.3s;
+      border: 1px solid rgba(102, 84, 94, 0.1);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color); /* Dynamic heading color */
+    }
+    
+    p {
+      color: var(--text-color); /* Dynamic text color */
+      line-height: 1.6;
+    }
+    
+    @media (max-width: 768px) {
+      .features {
+        padding: 4rem 1rem;
+      }
+    
+      h2 {
+        font-size: 2rem;
+      }
+    }
+    </style>
+    
   

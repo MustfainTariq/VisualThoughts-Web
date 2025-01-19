@@ -57,77 +57,81 @@
   </template>
   
   <style scoped>
-  .how-it-works {
-    padding: 6rem 2rem;
-    background-color: var(--bg-color);
-  }
-  
-  h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--primary-color); /* Primary color applied to the heading */
-  }
-  
-  .steps-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto 4rem;
-  }
-  
-  .step {
-    text-align: center;
-    padding: 2rem;
-    border: 1px solid var(--secondary-color); /* Secondary color for borders */
-    border-radius: 8px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-    background-color: var(--bg-color);
-    transition: transform 0.2s;
-  }
-  
-  .step:hover {
-    transform: translateY(-10px);
-  }
-  
-  .step-number {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--primary-color); /* Primary color applied to step numbers */
-    margin-bottom: 1rem;
-  }
-  
-  h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--secondary-color); /* Secondary color applied to step titles */
-  }
-  
-  p {
-    color: var(--text-color); /* Text color applied to descriptions */
-    line-height: 1.6;
-  }
-  
-  .step-media {
-    margin-top: 1.5rem;
-    max-width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  @media (max-width: 768px) {
     .how-it-works {
-      padding: 4rem 1rem;
+      padding: 6rem 2rem;
+      background-color: var(--bg-color); /* Use dynamic background color */
+      transition: background-color 0.3s, color 0.3s;
     }
-  
+    
     h2 {
-      font-size: 2rem;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: var(--primary-color); /* Dynamic text color */
+      transition: color 0.3s;
     }
-  
+    
     .steps-container {
-      grid-template-columns: 1fr;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto 4rem;
     }
-  }
-  </style>
+    
+    .step {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--bg-color); /* Dynamic card background */
+      color: var(--text-color); /* Dynamic text color */
+      border: 1px solid var(--secondary-color); /* Use secondary color for borders */
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s, background-color 0.3s, color 0.3s;
+    }
+    
+    .step:hover {
+      transform: translateY(-10px);
+    }
+    
+    .step-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--primary-color); /* Dynamic text color for step numbers */
+      margin-bottom: 1rem;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color); /* Dynamic text color for step titles */
+    }
+    
+    p {
+      color: var(--text-color); /* Dynamic text color for step descriptions */
+      line-height: 1.6;
+    }
+    
+    .step-media {
+      margin-top: 1.5rem;
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    @media (max-width: 768px) {
+      .how-it-works {
+        padding: 4rem 1rem;
+      }
+    
+      h2 {
+        font-size: 2rem;
+      }
+    
+      .steps-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    </style>
+    
     

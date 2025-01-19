@@ -1,15 +1,33 @@
 <script setup>
+  import { ref, computed } from 'vue';
   import HeroSection from './components/HeroSection.vue';
   import Features from './components/Features.vue';
   import HowItWorks from './components/HowItWorks.vue';
   import CallToAction from './components/CallToAction.vue';
+  
+  // Manage dark mode
+  const isDarkMode = ref(false);
+  
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    isDarkMode.value = !isDarkMode.value;
+    const root = document.documentElement;
+    root.classList.toggle('dark', isDarkMode.value);
+  };
+  const logoSrc = computed(() =>
+  isDarkMode.value ? '/src/assets/logo-dark-mode.png' : '/src/assets/logo.png'
+);
+
+  // Dynamic icon based on theme
+  const darkModeIcon = computed(() => (isDarkMode.value ? '🌙' : '☀️'));
   </script>
   
   <template>
     <div class="app-container">
       <nav class="navbar">
         <div class="logo">
-          <img src="./assets/logo.png" alt="Visual Thoughts Logo" class="logo-img" />
+          <!-- Dynamically update the logo based on dark mode -->
+          <img :src = "logoSrc" alt="Visual Thoughts Logo" class="logo-img" />
           <div class="logo-text-group">
             <span class="logo-text">Visual Thoughts</span>
             <span class="tagline">Snapshot Journaling for Effortless Insights</span>
@@ -19,6 +37,9 @@
           <a href="#features">Features</a>
           <a href="#how-it-works">How It Works</a>
           <button class="download-btn">Coming Soon</button>
+          <button class="dark-mode-btn" @click="toggleDarkMode">
+            {{ darkModeIcon }}
+          </button>
         </div>
       </nav>
   
@@ -54,6 +75,32 @@
   </template>
   
   <style>
+  :root {
+    --primary-color: #66545e;
+    --secondary-color: #d25959;
+    --text-color: #213547;
+    --bg-color: #ffffff;
+    --accent-color: #42b883;
+    --footer-color: #66545e;
+    --call-to-action-gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  }
+  
+  :root.dark {
+    --primary-color: #fef7e4;
+    --secondary-color: #d25959;
+    --text-color: #f5f5f5;
+    --bg-color: #1e1e1e;
+    --accent-color: #42b883;
+    --footer-color: #1e1e1e;
+    --call-to-action-gradient: #1e1e1e;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
   .app-container {
     min-height: 100vh;
     display: flex;
@@ -72,6 +119,11 @@
     right: 0;
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+  }
+  
+  :root.dark .navbar {
+    background-color: rgba(30, 30, 30, 0.95);
   }
   
   .logo {
@@ -128,8 +180,21 @@
     opacity: 0.9;
   }
   
+  .dark-mode-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: transform 0.3s;
+  }
+  
+  .dark-mode-btn:hover {
+    transform: scale(1.1);
+  }
+  
   .footer {
-    background-color: var(--primary-color);
+    background-color: var(--footer-color);
     color: white;
     padding: 4rem 2rem 2rem;
     margin-top: auto;
