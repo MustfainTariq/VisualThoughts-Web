@@ -15,7 +15,7 @@
     root.classList.toggle('dark', isDarkMode.value);
   };
   const logoSrc = computed(() =>
-  isDarkMode.value ? '/src/assets/logo-dark-mode.png' : '/src/assets/logo.png'
+  isDarkMode.value ? './assets/logo-dark-mode.png' : './assets/logo.png'
 );
 
   // Dynamic icon based on theme
