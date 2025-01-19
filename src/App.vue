@@ -4,77 +4,77 @@
   import Features from './components/Features.vue';
   import HowItWorks from './components/HowItWorks.vue';
   import CallToAction from './components/CallToAction.vue';
-  
+  import logoLight from './assets/logo.png';
+  import logoDark from './assets/logo-dark-mode.png';
   // Manage dark mode
   const isDarkMode = ref(false);
-  
+
   // Toggle dark mode
   const toggleDarkMode = () => {
     isDarkMode.value = !isDarkMode.value;
     const root = document.documentElement;
     root.classList.toggle('dark', isDarkMode.value);
   };
-  const logoSrc = computed(() =>
-  isDarkMode.value ? './src/assets/logo-dark-mode.png' : './src/assets/logo.png'
-);
+  // Computed property for logo source
+  const logoSrc = computed(() => (isDarkMode.value ? logoDark : logoLight));
 
   // Dynamic icon based on theme
   const darkModeIcon = computed(() => (isDarkMode.value ? '🌙' : '☀️'));
-  </script>
-  
-  <template>
-    <div class="app-container">
-      <nav class="navbar">
-        <div class="logo">
-          <!-- Dynamically update the logo based on dark mode -->
-          <img :src = "logoSrc" alt="Visual Thoughts Logo" class="logo-img" />
-          <div class="logo-text-group">
-            <span class="logo-text">Visual Thoughts</span>
-            <span class="tagline">Snapshot Journaling for Effortless Insights</span>
-          </div>
+</script>
+
+<template>
+  <div class="app-container">
+    <nav class="navbar">
+      <div class="logo">
+        <!-- Dynamically update the logo based on dark mode -->
+        <img :src="logoSrc" alt="Visual Thoughts Logo" class="logo-img" />
+        <div class="logo-text-group">
+          <span class="logo-text">Visual Thoughts</span>
+          <span class="tagline">Snapshot Journaling for Effortless Insights</span>
         </div>
-        <div class="nav-links">
-          <a href="#features">Features</a>
-          <a href="#how-it-works">How It Works</a>
-          <button class="download-btn">Coming Soon</button>
-          <button class="dark-mode-btn" @click="toggleDarkMode">
-            {{ darkModeIcon }}
-          </button>
+      </div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <button class="download-btn">Coming Soon</button>
+        <button class="dark-mode-btn" @click="toggleDarkMode">
+          {{ darkModeIcon }}
+        </button>
+      </div>
+    </nav>
+
+    <HeroSection />
+    <Features />
+    <HowItWorks />
+    <CallToAction />
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Visual Thoughts</h3>
+          <p>Transform your photos into meaningful journal entries with AI</p>
         </div>
-      </nav>
-  
-      <HeroSection />
-      <Features />
-      <HowItWorks />
-      <CallToAction />
-  
-      <footer class="footer">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>Visual Thoughts</h3>
-            <p>Transform your photos into meaningful journal entries with AI</p>
-          </div>
-          <div class="footer-section">
-            <h4>Features</h4>
-            <a href="#features">Gratitude Journaling</a>
-            <a href="#features">Reflective Journaling</a>
-            <a href="#features">AI-Powered</a>
-          </div>
-          <div class="footer-section">
-            <h4>Launch Updates</h4>
-            <p>Coming soon to:</p>
-            <a href="#" class="store-link">App Store</a>
-            <a href="#" class="store-link">Google Play</a>
-          </div>
+        <div class="footer-section">
+          <h4>Features</h4>
+          <a href="#features">Gratitude Journaling</a>
+          <a href="#features">Reflective Journaling</a>
+          <a href="#features">AI-Powered</a>
         </div>
-        <div class="footer-bottom">
-          <p>&copy; 2024 Visual Thoughts. All rights reserved.</p>
+        <div class="footer-section">
+          <h4>Launch Updates</h4>
+          <p>Coming soon to:</p>
+          <a href="#" class="store-link">App Store</a>
+          <a href="#" class="store-link">Google Play</a>
         </div>
-      </footer>
-    </div>
-  </template>
-  
-  <style>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Visual Thoughts. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</template>
+
+<style>
   :root {
     --primary-color: #66545e;
     --secondary-color: #d25959;
@@ -84,7 +84,7 @@
     --footer-color: #66545e;
     --call-to-action-gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   }
-  
+
   :root.dark {
     --primary-color: #fef7e4;
     --secondary-color: #d25959;
@@ -94,19 +94,19 @@
     --footer-color: #1e1e1e;
     --call-to-action-gradient: #1e1e1e;
   }
-  
+
   body {
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
   }
-  
+
   .app-container {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
   }
-  
+
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -121,50 +121,50 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s;
   }
-  
+
   :root.dark .navbar {
     background-color: rgba(30, 30, 30, 0.95);
   }
-  
+
   .logo {
     display: flex;
     align-items: center;
     gap: 0.5rem;
   }
-  
+
   .logo-img {
     height: 4rem;
   }
-  
+
   .logo-text-group {
     display: flex;
     flex-direction: column;
   }
-  
+
   .logo-text {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--primary-color);
   }
-  
+
   .tagline {
     font-size: 0.9rem;
     font-style: italic;
     color: var(--text-color);
   }
-  
+
   .nav-links {
     display: flex;
     gap: 2rem;
     align-items: center;
   }
-  
+
   .nav-links a {
     text-decoration: none;
     color: var(--text-color);
     font-weight: 500;
   }
-  
+
   .download-btn {
     background-color: var(--secondary-color);
     color: white;
@@ -175,11 +175,11 @@
     font-weight: 500;
     transition: background-color 0.3s;
   }
-  
+
   .download-btn:hover {
     opacity: 0.9;
   }
-  
+
   .dark-mode-btn {
     background: none;
     border: none;
@@ -188,18 +188,18 @@
     color: var(--text-color);
     transition: transform 0.3s;
   }
-  
+
   .dark-mode-btn:hover {
     transform: scale(1.1);
   }
-  
+
   .footer {
     background-color: var(--footer-color);
     color: white;
     padding: 4rem 2rem 2rem;
     margin-top: auto;
   }
-  
+
   .footer-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -207,29 +207,29 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
   }
-  
+
   .footer-section {
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .footer-section h3,
   .footer-section h4 {
     margin: 0;
     color: white;
   }
-  
+
   .footer-section a {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     transition: color 0.3s;
   }
-  
+
   .footer-section a:hover {
     color: white;
   }
-  
+
   .footer-bottom {
     margin-top: 2rem;
     text-align: center;
@@ -237,15 +237,14 @@
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: rgba(255, 255, 255, 0.8);
   }
-  
+
   @media (max-width: 768px) {
     .nav-links {
       display: none;
     }
-  
+
     .footer-content {
       grid-template-columns: 1fr;
     }
   }
-  </style>
-  
+</style>
