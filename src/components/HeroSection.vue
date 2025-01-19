@@ -1,4 +1,8 @@
 <script setup>
+const navigateToHowItWorks = () => {
+  const section = document.getElementById('how-it-works');
+  section?.scrollIntoView({ behavior: 'smooth' });
+};
 </script>
 
 <template>
@@ -12,11 +16,14 @@
       </div>
       <div class="cta-buttons">
         <button class="primary-btn">Join Waitlist</button>
-        <button class="secondary-btn">Learn More</button>
+        <button class="secondary-btn" @click="navigateToHowItWorks">Learn More</button>
       </div>
     </div>
-    <div class="hero-image">
-      <img src="./../assets/Main-Menu.jpg" alt="Visual Thoughts App Demo" />
+    <div class="hero-video">
+      <video autoplay muted loop playsinline>
+        <source src="./../assets/demo-final.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </div>
   </section>
 </template>
@@ -96,15 +103,15 @@ p {
   transform: translateY(-2px);
 }
 
-.hero-image {
+.hero-video {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.hero-image img {
-  max-width: 25%; /* Adjusted from 100% to 80% */
+.hero-video video {
+  max-width: 100%;
   height: auto;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -129,7 +136,7 @@ p {
     justify-content: center;
   }
 
-  .hero-image {
+  .hero-video {
     margin-top: 2rem;
   }
 }

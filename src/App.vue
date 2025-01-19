@@ -1,171 +1,186 @@
 <script setup>
-import HeroSection from './components/HeroSection.vue'
-import Features from './components/Features.vue'
-import HowItWorks from './components/HowItWorks.vue'
-import CallToAction from './components/CallToAction.vue'
-</script>
-
-<template>
-  <div class="app-container">
-    <nav class="navbar">
-      <div class="logo">
-        <img src="./assets/logo.png" alt="Visual Thoughts Logo" class="logo-img" />
-        <span class="logo-text">Visual Thoughts</span>
-      </div>
-      <div class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#how-it-works">How It Works</a>
-        <button class="download-btn">Coming Soon</button>
-      </div>
-    </nav>
-
-    <HeroSection />
-    <Features />
-    <HowItWorks />
-    <CallToAction />
-
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Visual Thoughts</h3>
-          <p>Transform your photos into meaningful journal entries with AI</p>
+  import HeroSection from './components/HeroSection.vue';
+  import Features from './components/Features.vue';
+  import HowItWorks from './components/HowItWorks.vue';
+  import CallToAction from './components/CallToAction.vue';
+  </script>
+  
+  <template>
+    <div class="app-container">
+      <nav class="navbar">
+        <div class="logo">
+          <img src="./assets/logo.png" alt="Visual Thoughts Logo" class="logo-img" />
+          <div class="logo-text-group">
+            <span class="logo-text">Visual Thoughts</span>
+            <span class="tagline">Snapshot Journaling for Effortless Insights</span>
+          </div>
         </div>
-        <div class="footer-section">
-          <h4>Features</h4>
-          <a href="#features">Gratitude Journaling</a>
-          <a href="#features">Reflective Journaling</a>
-          <a href="#features">AI-Powered</a>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <button class="download-btn">Coming Soon</button>
         </div>
-        <div class="footer-section">
-          <h4>Launch Updates</h4>
-          <p>Coming soon to:</p>
-          <a href="#" class="store-link">App Store</a>
-          <a href="#" class="store-link">Google Play</a>
+      </nav>
+  
+      <HeroSection />
+      <Features />
+      <HowItWorks />
+      <CallToAction />
+  
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Visual Thoughts</h3>
+            <p>Transform your photos into meaningful journal entries with AI</p>
+          </div>
+          <div class="footer-section">
+            <h4>Features</h4>
+            <a href="#features">Gratitude Journaling</a>
+            <a href="#features">Reflective Journaling</a>
+            <a href="#features">AI-Powered</a>
+          </div>
+          <div class="footer-section">
+            <h4>Launch Updates</h4>
+            <p>Coming soon to:</p>
+            <a href="#" class="store-link">App Store</a>
+            <a href="#" class="store-link">Google Play</a>
+          </div>
         </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Visual Thoughts. All rights reserved.</p>
-      </div>
-    </footer>
-  </div>
-</template>
-
-<style>
-.app-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: rgba(255, 255, 255, 0.95);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.logo-img {
-  height: 2rem;
-}
-
-.logo-text {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--primary-color);
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: 500;
-}
-
-.download-btn {
-  background-color: var(--secondary-color);
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.3s;
-}
-
-.download-btn:hover {
-  opacity: 0.9;
-}
-
-.footer {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 4rem 2rem 2rem;
-  margin-top: auto;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.footer-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.footer-section h3,
-.footer-section h4 {
-  margin: 0;
-  color: white;
-}
-
-.footer-section a {
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.footer-section a:hover {
-  color: white;
-}
-
-.footer-bottom {
-  margin-top: 2rem;
-  text-align: center;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.8);
-}
-
-@media (max-width: 768px) {
+        <div class="footer-bottom">
+          <p>&copy; 2024 Visual Thoughts. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  </template>
+  
+  <style>
+  .app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .logo-img {
+    height: 4rem;
+  }
+  
+  .logo-text-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+  
+  .tagline {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-color);
+  }
+  
   .nav-links {
-    display: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+  }
+  
+  .download-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+  }
+  
+  .download-btn:hover {
+    opacity: 0.9;
+  }
+  
+  .footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 4rem 2rem 2rem;
+    margin-top: auto;
   }
   
   .footer-content {
-    grid-template-columns: 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
   }
-}
-</style>
+  
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .footer-section h3,
+  .footer-section h4 {
+    margin: 0;
+    color: white;
+  }
+  
+  .footer-section a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .footer-section a:hover {
+    color: white;
+  }
+  
+  .footer-bottom {
+    margin-top: 2rem;
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  
+    .footer-content {
+      grid-template-columns: 1fr;
+    }
+  }
+  </style>
+  

@@ -1,114 +1,133 @@
 <script setup>
-const steps = [
-  {
-    number: '01',
-    title: 'Take a Photo',
-    description: 'Capture your moment with our easy-to-use camera interface.'
-  },
-  {
-    number: '02',
-    title: 'AI Processing',
-    description: 'Our AI analyzes your photo and understands the context.'
-  },
-  {
-    number: '03',
-    title: 'Generate Entry',
-    description: 'Get a beautifully written journal entry based on your photo.'
-  },
-  {
-    number: '04',
-    title: 'Customize & Share',
-    description: 'Edit your entry and share it with your friends if you want.'
-  }
-]
-</script>
-
-<template>
-  <section id="how-it-works" class="how-it-works">
-    <h2>How It Works</h2>
-    <div class="steps-container">
-      <div v-for="step in steps" :key="step.number" class="step">
-        <div class="step-number">{{ step.number }}</div>
-        <h3>{{ step.title }}</h3>
-        <p>{{ step.description }}</p>
+  import captureStep from './../assets/take-photo.png'; // Replace with the correct path
+  import personalizeStep from './../assets/personalize.png'; // Replace with the correct path
+  import aiProcessingImage from './../assets/process.png'; // Replace with the correct image path
+  import customizeShareVideo from './../assets/share.mp4'; // Replace with the correct video path
+  
+  const steps = [
+    {
+      number: '01',
+      title: 'Capture',
+      description: 'Capture your moment with our easy-to-use camera interface.',
+      image: captureStep
+    },
+    {
+      number: '02',
+      title: 'Personalize',
+      description: 'Add details or select preferences to make your journal entry unique.',
+      image: personalizeStep
+    },
+    {
+      number: '03',
+      title: 'AI Processing',
+      description: 'Our AI analyzes your photo and understands the context.',
+      image: aiProcessingImage // Step 3 is now an image
+    },
+    {
+      number: '04',
+      title: 'Customize & Share',
+      description: 'Edit your entry and share it with your friends if you want.',
+      video: customizeShareVideo // Step 4 remains a video
+    }
+  ];
+  </script>
+  
+  <template>
+    <section id="how-it-works" class="how-it-works">
+      <h2>How It Works</h2>
+      <div class="steps-container">
+        <div v-for="step in steps" :key="step.number" class="step">
+          <div class="step-number">{{ step.number }}</div>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+          <!-- Use image or video depending on the step -->
+          <img v-if="step.image" :src="step.image" :alt="step.title" class="step-media" />
+          <video
+            v-if="step.video"
+            :src="step.video"
+            autoplay
+            muted
+            loop
+            playsinline
+            class="step-media"
+          ></video>
+        </div>
       </div>
-    </div>
-    <div class="demo-image">
-      <!-- <img src="./../assets/Main-Menu.jpg" alt="Visual Thoughts Demo" /> -->
-    </div>
-  </section>
-</template>
-
-<style scoped>
-.how-it-works {
-  padding: 6rem 2rem;
-  background-color: white;
-}
-
-h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: var(--text-color);
-}
-
-.steps-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto 4rem;
-}
-
-.step {
-  text-align: center;
-  padding: 2rem;
-}
-
-.step-number {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--text-color);
-}
-
-p {
-  color: #666;
-  line-height: 1.6;
-}
-
-.demo-image {
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-.demo-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-}
-
-@media (max-width: 768px) {
+    </section>
+  </template>
+  
+  <style scoped>
   .how-it-works {
-    padding: 4rem 1rem;
+    padding: 6rem 2rem;
+    background-color: var(--bg-color);
   }
-
+  
   h2 {
-    font-size: 2rem;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color); /* Primary color applied to the heading */
   }
-
+  
   .steps-container {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 4rem;
   }
-}
-</style>
+  
+  .step {
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid var(--secondary-color); /* Secondary color for borders */
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    background-color: var(--bg-color);
+    transition: transform 0.2s;
+  }
+  
+  .step:hover {
+    transform: translateY(-10px);
+  }
+  
+  .step-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color); /* Primary color applied to step numbers */
+    margin-bottom: 1rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color); /* Secondary color applied to step titles */
+  }
+  
+  p {
+    color: var(--text-color); /* Text color applied to descriptions */
+    line-height: 1.6;
+  }
+  
+  .step-media {
+    margin-top: 1.5rem;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .how-it-works {
+      padding: 4rem 1rem;
+    }
+  
+    h2 {
+      font-size: 2rem;
+    }
+  
+    .steps-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  </style>
+    
