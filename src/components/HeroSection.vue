@@ -73,7 +73,7 @@
           playsinline
           :muted="isMuted"
         >
-          <source src="https://github.com/MustfainTariq/VisualThoughts-Web/releases/download/Demo-Video/demo.mp4" type="video/mp4" />
+          <source src="./../assets/demo-vt.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
   
