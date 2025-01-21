@@ -1,6 +1,6 @@
 <script setup>
   import captureStep from './../assets/Capture.png'; // Replace with the correct path
-  import personalizeStep from './../assets/Personalize.png'; // Replace with the correct path
+  import personalizeStep from './../assets/personalize-journal.png'; // Replace with the correct path
   import aiProcessingImage from './../assets/AI-Processing.png'; // Replace with the correct image path
   import customizeShareGif from './../assets/Share.gif'; // Replace with the correct GIF path
   

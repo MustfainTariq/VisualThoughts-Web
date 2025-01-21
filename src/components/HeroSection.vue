@@ -1,16 +1,15 @@
 <script setup>
   import { ref, onMounted } from 'vue';
   
-  // Reference for the video element
+  // References
   const videoRef = ref(null);
   
-  // State to manage loading spinner
+  // States
   const isLoading = ref(true);
-  
-  // Start video muted so it can autoplay
+  const isBuffering = ref(false);
   const isMuted = ref(true);
   
-  // Function to toggle mute/unmute
+  // Functions
   const toggleMute = () => {
     if (videoRef.value) {
       isMuted.value = !isMuted.value;
@@ -18,21 +17,27 @@
     }
   };
   
-  // Log and troubleshoot video playback
+  // Lifecycle hooks
   onMounted(() => {
     if (videoRef.value) {
       videoRef.value.addEventListener('loadeddata', () => {
         console.log('Video loaded successfully.');
-        isLoading.value = false; // Hide the loading spinner
+        isLoading.value = false; // Hide the loader once data is loaded
+      });
+  
+      videoRef.value.addEventListener('waiting', () => {
+        console.log('Video buffering...');
+        isBuffering.value = true; // Show loader during buffering
+      });
+  
+      videoRef.value.addEventListener('playing', () => {
+        console.log('Video resumed.');
+        isBuffering.value = false; // Hide loader when playing resumes
       });
   
       videoRef.value.addEventListener('error', (e) => {
         console.error('Video failed to load:', e);
-        isLoading.value = false; // Hide the spinner even if there's an error
-      });
-  
-      videoRef.value.addEventListener('play', () => {
-        console.log('Video is playing.');
+        isLoading.value = false; // Hide the loader even if there's an error
       });
     }
   });
@@ -47,9 +52,7 @@
         </p>
         <div class="launch-info">
           <span class="launch-badge">Coming Soon</span>
-          <p class="launch-text">
-            Join the waitlist to be notified when we launch!
-          </p>
+          <p class="launch-text">Join the waitlist to be notified when we launch!</p>
         </div>
         <div class="cta-buttons">
           <button class="primary-btn">Join Waitlist</button>
@@ -59,7 +62,7 @@
   
       <div class="hero-video">
         <!-- Loading spinner -->
-        <div v-if="isLoading" class="loading-spinner"></div>
+        <div v-if="isLoading || isBuffering" class="loading-spinner"></div>
   
         <!-- Video -->
         <video
@@ -76,6 +79,7 @@
   
         <!-- Mute/Unmute Button -->
         <button
+          v-if="!isLoading"
           class="mute-btn"
           @click="toggleMute"
           :aria-label="isMuted ? 'Unmute Audio' : 'Mute Audio'"
@@ -93,7 +97,7 @@
     display: flex;
     align-items: center;
     padding: 6rem 2rem;
-    background: var(--bg-color); /* Use dynamic background color */
+    background: var(--bg-color);
     transition: background-color 0.3s;
   }
   
@@ -106,13 +110,13 @@
   h1 {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
-    color: var(--primary-color); /* Use dynamic primary color */
+    color: var(--primary-color);
     transition: color 0.3s;
   }
   
   p {
     font-size: 1.25rem;
-    color: var(--text-color); /* Use dynamic text color */
+    color: var(--text-color);
     margin-bottom: 2rem;
     transition: color 0.3s;
   }
@@ -122,7 +126,7 @@
   }
   
   .launch-badge {
-    background-color: var(--secondary-color); /* Dynamic badge color */
+    background-color: var(--secondary-color);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -133,7 +137,7 @@
   .launch-text {
     margin-top: 1rem;
     font-size: 1rem;
-    color: var(--primary-color); /* Use dynamic text color */
+    color: var(--primary-color);
     transition: color 0.3s;
   }
   
@@ -152,15 +156,15 @@
   }
   
   .primary-btn {
-    background-color: var(--secondary-color); /* Dynamic button background */
+    background-color: var(--secondary-color);
     color: white;
     border: none;
   }
   
   .secondary-btn {
     background-color: transparent;
-    border: 2px solid var(--primary-color); /* Dynamic button border */
-    color: var(--primary-color); /* Dynamic button text */
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
     transition: color 0.3s, border-color 0.3s;
   }
   
@@ -188,12 +192,14 @@
   
   /* Loading Spinner */
   .loading-spinner {
+    position: absolute;
     width: 50px;
     height: 50px;
     border: 5px solid rgba(0, 0, 0, 0.1);
-    border-top: 5px solid var(--primary-color); /* Dynamic spinner color */
+    border-top: 5px solid var(--primary-color);
     border-radius: 50%;
     animation: spin 1s linear infinite;
+    z-index: 2;
   }
   
   @keyframes spin {
