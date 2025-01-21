@@ -26,7 +26,6 @@
   <div class="app-container">
     <nav class="navbar">
       <div class="logo">
-        <!-- Dynamically update the logo based on dark mode -->
         <img :src="logoSrc" alt="Visual Thoughts Logo" class="logo-img" />
         <div class="logo-text-group">
           <span class="logo-text">Visual Thoughts</span>
@@ -66,6 +65,27 @@
           <a href="#" class="store-link">App Store</a>
           <a href="#" class="store-link">Google Play</a>
         </div>
+        <div class="footer-section">
+          <h4>Meet the Team</h4>
+          <ul class="team-list">
+            <li>
+              <strong>Fayyaz Ali Khan</strong> <br />
+              <a href="https://www.linkedin.com/in/fayyazak/" target="_blank">LinkedIn</a> |
+              <a href="https://github.com/FayyazAK" target="_blank">GitHub</a>
+            </li>
+            <li>
+              <strong>Mustfain Tariq</strong> <br />
+              <a href="https://www.linkedin.com/in/mustfain/" target="_blank">LinkedIn</a> |
+              <a href="https://github.com/MustfainTariq" target="_blank">GitHub</a>
+            </li>
+            <li>
+              <strong>Haider Khan</strong> <br />
+              <a href="https://www.linkedin.com/in/haider-khan-nuces/" target="_blank">LinkedIn</a> |
+              <a href="https://github.com/haiderhk" target="_blank">GitHub</a>
+            </li>            
+          </ul>
+        </div>
+        
       </div>
       <div class="footer-bottom">
         <p>&copy; 2024 Visual Thoughts. All rights reserved.</p>
@@ -223,6 +243,7 @@
   .footer-section a {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
+    font-weight: 500;
     transition: color 0.3s;
   }
 
@@ -236,6 +257,16 @@
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: rgba(255, 255, 255, 0.8);
+  }
+
+  .footer-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 1rem;
   }
 
   @media (max-width: 768px) {

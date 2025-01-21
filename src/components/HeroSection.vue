@@ -61,7 +61,7 @@
           playsinline
           :muted="isMuted"
         >
-          <source src="./../assets/demo-final.mp4" type="video/mp4" />
+          <source src="./../assets/demo.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <button
