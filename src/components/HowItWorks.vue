@@ -1,8 +1,8 @@
 <script setup>
-  import captureStep from './../assets/Capture-Image.png'; // Replace with the correct path
-  import personalizeStep from './../assets/Personalize-Image.png'; // Replace with the correct path
-  import aiProcessingImage from './../assets/AI-Processing-Image.png'; // Replace with the correct image path
-  import customizeShareGif from './../assets/Share-GIF.gif'; // Replace with the correct GIF path
+  import captureStep from './../assets/Capture.png'; // Replace with the correct path
+  import personalizeStep from './../assets/AI-Processing.png'; // Replace with the correct path
+  import aiProcessingImage from './../assets/Personalize.png'; // Replace with the correct image path
+  import customizeShareGif from './../assets/Share.gif'; // Replace with the correct GIF path
   
   const steps = [
     {

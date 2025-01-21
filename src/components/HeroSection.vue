@@ -81,7 +81,7 @@
         playsinline
         :muted="isMuted"
       >
-        <source src="./../assets/demo-vt.mp4" type="video/mp4" />
+        <source src="./../assets/demo-vt-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
