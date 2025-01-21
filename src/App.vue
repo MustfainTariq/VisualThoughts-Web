@@ -196,9 +196,9 @@
     transition: background-color 0.3s;
   }
 
-  .download-btn:hover {
+  /* .download-btn:hover {
     opacity: 0.9;
-  }
+  } */
 
   .dark-mode-btn {
     background: none;
@@ -209,9 +209,9 @@
     transition: transform 0.3s;
   }
 
-  .dark-mode-btn:hover {
+  /* .dark-mode-btn:hover {
     transform: scale(1.1);
-  }
+  } */
 
   .footer {
     background-color: var(--footer-color);
