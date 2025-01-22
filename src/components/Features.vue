@@ -27,7 +27,7 @@
     },
     {
       title: 'Social Journaling',
-      description: 'Share your journal entries with friends and family on social media platforms with a single click.',
+      description: 'Share your journal entries with friends, family, or even publicly. Discover and engage with publicly shared journals, creating a space full of inspiration and connection.',
       icon: '📱'
     }
   ];
